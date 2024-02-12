@@ -7,22 +7,22 @@ np.random.seed(seed_value)
 
 # Constants
 file_name = 'Student_data_2_2566.xlsx'
-sheet_numbers = [13, 14, 15, 16]
+sheet_numbers = [5, 6, 7, 8]
 tag_list = [
     "วิชาการ", "วิชาชีพ", "กิจการนักศึกษา", "เพิ่มทักษะ", "เทคโนโลยี",
     "บันเทิง", "ศิลปะ", "การแสดง", "ศาสนา","เทศกาล", 
     "สุขภาพ", "เข้าสังคม", "จิตอาสา", "ท่องเที่ยว", "กีฬา"
 ]
 tag_probabilities = {
-    "education": [0.12, 0.12, 0.12, 0.12, 0.12, 
-                  0.02, 0.06, 0.02, 0.06, 0.06,
-                   0.06, 0.06, 0.02, 0.02, 0.02],
-    "art": [0.06, 0.06, 0.06, 0.06, 0.02, 
-            0.12, 0.12, 0.12, 0.12, 0.12,
-            0.02, 0.06, 0.02, 0.02, 0.02],
-    "social": [0.06, 0.02, 0.06, 0.06, 0.02, 
-               0.06, 0.02, 0.02, 0.02, 0.06,
-               0.12, 0.12, 0.12, 0.12, 0.12]
+    "education": [0.14, 0.14, 0.14, 0.14, 0.14, 
+                  0.01, 0.05, 0.01, 0.05, 0.05,
+                   0.05, 0.05, 0.01, 0.01, 0.01],
+    "art": [0.05, 0.05, 0.05, 0.05, 0.01, 
+            0.14, 0.14, 0.14, 0.14, 0.14,
+            0.01, 0.05, 0.01, 0.01, 0.01],
+    "social": [0.05, 0.01, 0.05, 0.05, 0.01, 
+               0.05, 0.01, 0.01, 0.01, 0.05,
+               0.14, 0.14, 0.14, 0.14, 0.14]
 }
 
 # Read and concatenate data frames
@@ -57,7 +57,7 @@ art_group = pd.concat([art_group.reset_index(drop=True), art_tags_df], axis=1)
 social_group = pd.concat([social_group.reset_index(drop=True), social_tags_df], axis=1)
 
 # Write to Excel file
-with pd.ExcelWriter('Generated_data.xlsx', engine='xlsxwriter') as writer:
+with pd.ExcelWriter('Generated_data2.xlsx', engine='xlsxwriter') as writer:
     education_group.to_excel(writer, sheet_name="Education", index=False)
     art_group.to_excel(writer, sheet_name="Art", index=False)
     social_group.to_excel(writer, sheet_name="Social", index=False)
