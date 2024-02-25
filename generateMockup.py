@@ -7,7 +7,7 @@ np.random.seed(seed_value)
 
 # Constants
 file_name = 'Student_data_2_2566.xlsx'
-sheet_numbers = [5, 6, 7, 8]
+sheet_numbers = [9, 10, 12, 17]
 tag_list = [
     "วิชาการ", "วิชาชีพ", "กิจการนักศึกษา", "เพิ่มทักษะ", "เทคโนโลยี",
     "บันเทิง", "ศิลปะ", "การแสดง", "ศาสนา","เทศกาล", 
@@ -57,7 +57,7 @@ art_group = pd.concat([art_group.reset_index(drop=True), art_tags_df], axis=1)
 social_group = pd.concat([social_group.reset_index(drop=True), social_tags_df], axis=1)
 
 # Write to Excel file
-with pd.ExcelWriter('Generated_data2.xlsx', engine='xlsxwriter') as writer:
+with pd.ExcelWriter('Generated_data3.xlsx', engine='xlsxwriter') as writer:
     education_group.to_excel(writer, sheet_name="Education", index=False)
     art_group.to_excel(writer, sheet_name="Art", index=False)
     social_group.to_excel(writer, sheet_name="Social", index=False)
